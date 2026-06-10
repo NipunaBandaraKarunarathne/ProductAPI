@@ -40,4 +40,14 @@ public class ProductService {
         return modelMapper.map(product, ProductDTO.class);
     }
 
+        public ProductDTO updateProduct(ProductDTO productDTO) {
+        productRepo.save(modelMapper.map(productDTO, Product.class));
+        return productDTO;
+    }
+
+    public String deleteProduct(Integer productId) {
+        productRepo.deleteById(productId);
+        return "Product deleted";
+    }
+
 }
